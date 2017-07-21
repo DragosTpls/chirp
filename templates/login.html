@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<div class="bordered" align="center">
+<form method="post" class="register-form">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <p>
+         <h2><span class="glyphicon glyphicon-list-alt"></span> Login</h2>
+   <hr width="50%">
+
+
+       <span class="glyphicon glyphicon-pencil"></span>
+        <input class="input-group-field" type="text" placeholder="Username"
+    name="username" maxlength="30" id="id_username" class="{% if form.username.errors %} error-field {% endif %}"/>
+        {{ form.username.errors }}
+    </p>
+    <p>
+        <span class="glyphicon glyphicon-lock"></span>
+        <input class="input-group-field" type="password" placeholder="Password"
+    name="password" maxlength="30" id="id_password" class="{% if form.password.errors %} error-field {% endif %}"/>
+        {{ form.password.errors }}
+    </p>
+
+    <button class="btn btn-primary" type="submit">Login</button>
+</form>
+</div>
+{% endblock %}
